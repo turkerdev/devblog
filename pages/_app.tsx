@@ -15,7 +15,6 @@ function App({ Component, pageProps }: AppProps) {
         autoClose={3000}
         theme="dark"
         hideProgressBar={true}
-        className=""
       />
     </QueryClientProvider>
   );
