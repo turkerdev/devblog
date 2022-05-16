@@ -17,3 +17,9 @@ View a specific blog @ `example.com/{slug}`
 - set `DATABASE_URL`(mongo) to `.env` file
 - set `ADMIN_KEY` to `.env` file
 - `yarn dev`
+
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/48413508/168506741-09cdcc20-d345-45c2-b694-857b45707daf.png)
+![image](https://user-images.githubusercontent.com/48413508/168506760-b522663f-f3db-4b84-b5cc-6f1650478939.png)
+
