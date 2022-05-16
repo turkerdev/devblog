@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
 
 const Blog: NextPage<Props> = ({ blog }) => {
   return (
-    <div className="2xl:w-[960px] mx-auto">
+    <div className="w-[460px] sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
       <div className="border rounded my-4 border-neutral-600 py-4 px-6 bg-neutral-800">
         <h1 className="text-center text-4xl">{blog.title}</h1>
         <MarkdownView className="my-6" src={blog.content} />

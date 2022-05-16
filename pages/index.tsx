@@ -48,7 +48,7 @@ const Home: NextPage<Props> = ({ blogs }) => {
   }, []);
 
   return (
-    <div className="2xl:w-[720px] mx-auto">
+    <div className="w-[460px] sm:w-[500px] md:w-[520px] lg:w-[560px] xl:w-[640px] 2xl:w-[720px] mx-auto">
       {adminKey && (
         <Link href="/create">
           <a>
