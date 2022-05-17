@@ -22,4 +22,4 @@ View a specific blog @ `example.com/{slug}`
 
 ![image](https://user-images.githubusercontent.com/48413508/168506741-09cdcc20-d345-45c2-b694-857b45707daf.png)
 ![image](https://user-images.githubusercontent.com/48413508/168506760-b522663f-f3db-4b84-b5cc-6f1650478939.png)
-
+![image](https://user-images.githubusercontent.com/48413508/168713505-beea805e-cc67-4106-baad-d6cd9e40617e.png)
