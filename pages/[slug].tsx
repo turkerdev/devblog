@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     slug: z.string(),
   });
 
-  const validation = paramsSchema.safeParse(ctx.params);
+  const validation = await paramsSchema.spa(ctx.params);
 
   if (!validation.success) {
     return {
