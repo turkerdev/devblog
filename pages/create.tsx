@@ -7,6 +7,7 @@ import axios, { AxiosError } from "axios";
 import { ArrowClockwise } from "phosphor-react";
 import MarkdownView from "../components/MarkdownView";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 interface Props {
   adminKey: string;
@@ -36,6 +37,7 @@ const Create: NextPage<Props> = ({ adminKey }) => {
   const [formbody, setFormBody] = useState<Partial<TInput>>({ adminKey });
   const [formerror, setFormError] = useState<ZodFormattedError<TInput>>();
   const [src, setSrc] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const res = Input.safeParse(formbody);
@@ -54,7 +56,9 @@ const Create: NextPage<Props> = ({ adminKey }) => {
         toast.error("Something went wrong 😔");
       },
       onSuccess: (data) => {
-        toast.success(`Blog created successfully @ ${data.slug}`);
+        toast.success(`Blog created successfully 🎉 click to go.`, {
+          onClick: () => router.push(`/${data.slug}`),
+        });
       },
     }
   );
