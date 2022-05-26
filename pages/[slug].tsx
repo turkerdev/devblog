@@ -3,12 +3,14 @@ import React from "react";
 import { prisma } from "../lib/db";
 import MarkdownView from "../components/MarkdownView";
 import { z } from "zod";
+import Head from "next/head";
 
 interface Props {
   blog: {
     title: string;
     content: string;
     createdAt: string;
+    preview: string;
   };
 }
 
@@ -40,6 +42,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
       title: true,
       content: true,
       createdAt: true,
+      preview: true,
     },
   });
 
@@ -53,6 +56,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     content: rawBlog.content,
     title: rawBlog.title,
     createdAt: rawBlog.createdAt.toUTCString(),
+    preview: rawBlog.preview,
   };
 
   return {
@@ -62,17 +66,23 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
 
 const Blog: NextPage<Props> = ({ blog }) => {
   return (
-    <div className="w-[460px] sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
-      <div className="border rounded my-4 border-neutral-600 py-4 px-6 bg-neutral-800">
-        <h1 className="text-center text-5xl py-8">{blog.title}</h1>
-        <MarkdownView className="my-6" src={blog.content} />
-        <p className="text-neutral-400 text-right">
-          {new Intl.DateTimeFormat("en-US", {
-            dateStyle: "medium",
-          }).format(new Date(blog.createdAt))}
-        </p>
+    <>
+      <Head>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.preview} />
+      </Head>
+      <div className="w-[460px] sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
+        <div className="border rounded my-4 border-neutral-600 py-4 px-6 bg-neutral-800">
+          <h1 className="text-center text-5xl py-8">{blog.title}</h1>
+          <MarkdownView className="my-6" src={blog.content} />
+          <p className="text-neutral-400 text-right">
+            {new Intl.DateTimeFormat("en-US", {
+              dateStyle: "medium",
+            }).format(new Date(blog.createdAt))}
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
