@@ -40,16 +40,16 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
 };
 
 const Home: NextPage<Props> = ({ blogs }) => {
-  const [adminKey, setAdminKey] = useState("");
+  const [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
     const cookies = cookie.parse(document.cookie);
-    setAdminKey(cookies.admin_key);
+    setAdmin(!!cookies.admin_key || false);
   }, []);
 
   return (
     <div className="w-[460px] sm:w-[500px] md:w-[520px] lg:w-[560px] xl:w-[640px] 2xl:w-[720px] mx-auto">
-      {adminKey && (
+      {isAdmin && (
         <Link href="/create">
           <a>
             <div className="p-5 border rounded border-neutral-600 my-6 bg-neutral-800 cursor-pointer group">
