@@ -72,14 +72,14 @@ const Blog: NextPage<Props> = ({ blog }) => {
         <meta name="description" content={blog.preview} />
       </Head>
       <div className="w-[460px] sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
-        <div className="border rounded my-4 border-neutral-600 py-4 px-6 bg-neutral-800">
-          <h1 className="text-center text-5xl py-8">{blog.title}</h1>
-          <MarkdownView className="my-6" src={blog.content} />
-          <p className="text-neutral-400 text-right">
+        <div className="my-4 py-4 px-6">
+          <h1 className="text-center text-5xl pt-8 pb-4">{blog.title}</h1>
+          <p className="text-neutral-400 text-center">
             {new Intl.DateTimeFormat("en-US", {
               dateStyle: "medium",
             }).format(new Date(blog.createdAt))}
           </p>
+          <MarkdownView className="my-6" src={blog.content} />
         </div>
       </div>
     </>
