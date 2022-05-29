@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Code, FilePlus } from "phosphor-react";
+import { Code, FilePlus, GithubLogo } from "phosphor-react";
 import cookie from "cookie";
 import { useEffect, useState } from "react";
 
@@ -28,6 +28,12 @@ export default function NavBar() {
           </a>
         </Link>
       )}
+      <a
+        className="ml-auto hover:text-amber-500"
+        href="https://github.com/turkerdev/blog"
+      >
+        <GithubLogo size={24} />
+      </a>
     </nav>
   );
 }
