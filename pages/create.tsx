@@ -40,7 +40,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
 const Create: NextPage<Props> = ({ adminKey }) => {
   const [formbody, setFormBody] = useState<Partial<TCreateInput>>({ adminKey });
   const [formerror, setFormError] = useState<ZodFormattedError<TCreateInput>>();
-  const [src, setSrc] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -48,10 +47,6 @@ const Create: NextPage<Props> = ({ adminKey }) => {
     const data = res.success ? undefined : res.error.format();
     setFormError(data);
   }, [formbody]);
-
-  useEffect(() => {
-    setFormBody((body) => ({ ...body, content: src }));
-  }, [src]);
 
   const { isLoading, mutate } = useMutation<
     TCreateOutput,
@@ -126,11 +121,13 @@ const Create: NextPage<Props> = ({ adminKey }) => {
       <div className="flex mt-5 gap-5 h-[600px]">
         <textarea
           className="w-full resize-none"
-          onChange={(e) => setSrc(e.target.value)}
+          onChange={(e) =>
+            setFormBody((body) => ({ ...body, content: e.target.value }))
+          }
         ></textarea>
         <MarkdownView
           className="w-full overflow-auto outline-none border border-neutral-700 focus:border-neutral-400 rounded bg-transparent px-1"
-          src={src}
+          src={formbody.content || ""}
         />
       </div>
     </div>

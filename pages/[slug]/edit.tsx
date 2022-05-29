@@ -59,7 +59,6 @@ const Edit: NextPage<Props> = (props) => {
     slug: props.slug,
   });
   const [formerror, setFormError] = useState<ZodFormattedError<TPatchInput>>();
-  const [src, setSrc] = useState(props.content);
   const router = useRouter();
 
   useEffect(() => {
@@ -67,10 +66,6 @@ const Edit: NextPage<Props> = (props) => {
     const data = res.success ? undefined : res.error.format();
     setFormError(data);
   }, [formbody]);
-
-  useEffect(() => {
-    setFormBody((body) => ({ ...body, content: src }));
-  }, [src]);
 
   const { isLoading, mutate } = useMutation<{}, AxiosError, TPatchInput>(
     async (input) => (await axios.patch("/api/post", input)).data,
@@ -147,11 +142,13 @@ const Edit: NextPage<Props> = (props) => {
         <textarea
           className="w-full resize-none"
           value={formbody.content}
-          onChange={(e) => setSrc(e.target.value)}
+          onChange={(e) =>
+            setFormBody((body) => ({ ...body, content: e.target.value }))
+          }
         ></textarea>
         <MarkdownView
           className="w-full overflow-auto outline-none border border-neutral-700 focus:border-neutral-400 rounded bg-transparent px-1"
-          src={src}
+          src={formbody.content || ""}
         />
       </div>
     </div>
