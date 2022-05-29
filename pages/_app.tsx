@@ -13,6 +13,8 @@ function App({ Component, pageProps }: AppProps) {
       <NavBar />
       <Component {...pageProps} />
       <ToastContainer
+        bodyClassName="font-jetbrains tracking-tighter text-amber-400 text-sm"
+        toastClassName="border border-neutral-700"
         position="bottom-right"
         autoClose={3000}
         theme="dark"

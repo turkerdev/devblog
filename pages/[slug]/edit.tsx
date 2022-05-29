@@ -74,7 +74,7 @@ const Edit: NextPage<Props> = (props) => {
         toast.error("Something went wrong 😔");
       },
       onSuccess: () => {
-        toast.success(`Post updated successfully 🎉 click to go.`, {
+        toast.success(`🎉 Post updated successfully. 👆 Click to go.`, {
           onClick: () => router.push(`/${props.slug}`),
         });
       },

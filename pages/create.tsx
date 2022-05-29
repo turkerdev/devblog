@@ -57,7 +57,7 @@ const Create: NextPage<Props> = ({ adminKey }) => {
       toast.error("Something went wrong 😔");
     },
     onSuccess: (data) => {
-      toast.success(`Post created successfully 🎉 click to go.`, {
+      toast.success(`🎉 Post created successfully. 👆 Click to go.`, {
         onClick: () => router.push(`/${data.slug}`),
       });
     },
