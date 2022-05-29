@@ -4,6 +4,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      serif: "Tiro Devanagari Sanskrit",
+    },
     extend: {
       fontFamily: {
         jetbrains: "JetBrains Mono",

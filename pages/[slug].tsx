@@ -135,7 +135,9 @@ const Blog: NextPage<Props> = ({ blog }) => {
               </button>
             </div>
           )}
-          <h1 className="text-center text-5xl pt-8 pb-4">{blog.title}</h1>
+          <h1 className="text-center text-5xl pt-8 pb-4 font-serif">
+            {blog.title}
+          </h1>
           <p className="text-neutral-400 text-center">
             {new Intl.DateTimeFormat("en-US", {
               dateStyle: "medium",
