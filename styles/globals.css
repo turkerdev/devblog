@@ -68,6 +68,10 @@
     @apply font-jetbrains;
   }
 
+  #md pre > code {
+    @apply flex overflow-y-auto;
+  }
+
   #md pre {
     @apply block bg-neutral-900 rounded p-2 my-2;
   }
