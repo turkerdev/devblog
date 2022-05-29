@@ -15,5 +15,5 @@ A blog app, that you can create, edit, delete posts. Its meant to be fast so it 
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/48413508/170848062-71790f27-14da-4e43-8d16-6aa28a1e239a.png)
-![image](https://user-images.githubusercontent.com/48413508/170848516-657a0d5f-7dc7-4707-b4c1-feb5f62ab0ab.png)
+![image](https://user-images.githubusercontent.com/48413508/170870598-3dd88486-a458-48c4-b900-76a4654eec53.png)
 ![image](https://user-images.githubusercontent.com/48413508/170848575-ae5d23b1-f801-4881-a1fa-59619a79833b.png)
