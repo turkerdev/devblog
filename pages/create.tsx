@@ -12,6 +12,8 @@ import { ArrowClockwise } from "phosphor-react";
 import MarkdownView from "../components/MarkdownView";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { marked } from "marked";
+import PostEditor from "../components/PostEditor";
 
 interface Props {
   adminKey: string;
@@ -71,66 +73,20 @@ const Create: NextPage<Props> = ({ adminKey }) => {
   }
 
   return (
-    <div className="p-5">
-      <div className="flex">
-        <button
-          className={`rounded p-1 px-4 
-          ${isLoading && "animate-pulse"}
-          ${!formerror && !isLoading && "hover:bg-cyan-600"}
-          ${formerror ? "bg-cyan-900" : "bg-cyan-700"}`}
-          onClick={() => tryMutate()}
-          disabled={isLoading || !!formerror}
-        >
-          {isLoading ? (
-            <>
-              <ArrowClockwise className="inline-block animate-spin mr-2" />
-              publishing...
-            </>
-          ) : (
-            "publish"
-          )}
-        </button>
-      </div>
-      <div className="mt-2 block w-64 mx-auto">
-        <input
-          className="w-full"
-          type="text"
-          placeholder="title"
-          onChange={(e) =>
-            setFormBody((body) => ({ ...body, title: e.target.value }))
-          }
-        />
-        {formerror?.title?._errors.map((err, i) => (
-          <p key={i} className="text-red-500">
-            • {err}
-          </p>
-        ))}
-        <textarea
-          className="w-full mt-2 resize-none"
-          placeholder="preview"
-          onChange={(e) =>
-            setFormBody((body) => ({ ...body, preview: e.target.value }))
-          }
-        ></textarea>
-        {formerror?.preview?._errors.map((err, i) => (
-          <p key={i} className="text-red-500">
-            • {err}
-          </p>
-        ))}
-      </div>
-      <div className="flex mt-5 gap-5 h-[600px]">
-        <textarea
-          className="w-full resize-none"
-          onChange={(e) =>
-            setFormBody((body) => ({ ...body, content: e.target.value }))
-          }
-        ></textarea>
-        <MarkdownView
-          className="w-full overflow-auto outline-none border border-neutral-700 focus:border-neutral-400 rounded bg-transparent px-1"
-          src={formbody.content || ""}
-        />
-      </div>
-    </div>
+    <PostEditor
+      contentChange={(e) => {
+        setFormBody((body) => ({ ...body, content: e.target.value }));
+      }}
+      titleChange={(e) =>
+        setFormBody((body) => ({ ...body, title: e.target.value }))
+      }
+      previewChange={(e) =>
+        setFormBody((body) => ({ ...body, preview: e.target.value }))
+      }
+      content={formbody.content}
+      formerror={formerror}
+      tryMutate={tryMutate}
+    />
   );
 };
 
