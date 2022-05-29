@@ -9,9 +9,9 @@ datasource db {
 
 model Blog {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug      String   @unique
   title     String
   content   String
   preview   String
-  slug      String
   createdAt DateTime @default(now())
 }
