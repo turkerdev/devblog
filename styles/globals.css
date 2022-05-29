@@ -52,11 +52,11 @@
   }
 
   #md a {
-    @apply text-red-500 underline decoration-2 decoration-red-900;
+    @apply text-amber-400 underline decoration-2 decoration-amber-500;
   }
 
   #md blockquote {
-    @apply border-l-4 pl-4 my-4 border-neutral-600 text-neutral-400;
+    @apply border-l-4 pl-4 my-4 border-amber-500 text-neutral-400;
   }
 
   #md code:not(pre code) {
