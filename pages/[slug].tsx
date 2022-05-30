@@ -115,7 +115,7 @@ const Blog: NextPage<Props> = ({ blog }) => {
   return (
     <>
       <Head>
-        <title>{blog.title}</title>
+        <title>{blog.title} | turker.dev</title>
         <meta name="description" content={blog.preview} />
       </Head>
       <div className="sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
@@ -143,7 +143,7 @@ const Blog: NextPage<Props> = ({ blog }) => {
               dateStyle: "medium",
             }).format(new Date(blog.createdAt))}
           </p>
-          <MarkdownView className="my-6" src={blog.content} />
+          <MarkdownView className="my-6" content={blog.content} />
         </div>
       </div>
     </>

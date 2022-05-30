@@ -84,7 +84,7 @@ const Edit: NextPage<Props> = (props) => {
     }
   );
 
-  function tryMutate() {
+  function tryPublish() {
     if (isLoading || !formbody || formerror) {
       return;
     }
@@ -107,7 +107,7 @@ const Edit: NextPage<Props> = (props) => {
       }
       formerror={formerror}
       createdAt={props.createdAt}
-      tryMutate={tryMutate}
+      tryPublish={tryPublish}
     />
   );
 };

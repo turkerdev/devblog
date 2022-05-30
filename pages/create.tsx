@@ -65,7 +65,7 @@ const Create: NextPage<Props> = ({ adminKey }) => {
     },
   });
 
-  function tryMutate() {
+  function tryPublish() {
     if (isLoading || !formbody || formerror) {
       return;
     }
@@ -85,7 +85,7 @@ const Create: NextPage<Props> = ({ adminKey }) => {
       }
       content={formbody.content}
       formerror={formerror}
-      tryMutate={tryMutate}
+      tryPublish={tryPublish}
     />
   );
 };

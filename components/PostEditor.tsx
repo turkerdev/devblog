@@ -12,7 +12,7 @@ type Props = {
   previewChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   titleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   formerror?: ZodFormattedError<TCreateInput | TPatchInput>;
-  tryMutate: () => void;
+  tryPublish: () => void;
 };
 
 export default function PostEditor(props: Props) {
@@ -24,7 +24,7 @@ export default function PostEditor(props: Props) {
         <div className="border-y border-neutral-600 py-4 px-4 gap-2 flex flex-wrap">
           <button
             className="text-neutral-500 border rounded px-2 border-neutral-600 hover:text-green-500 hover:border-green-500"
-            onClick={props.tryMutate}
+            onClick={props.tryPublish}
           >
             Publish
           </button>
@@ -71,7 +71,7 @@ export default function PostEditor(props: Props) {
           }).format(new Date(props.createdAt || Date.now()))}
         </p>
         {state === "Preview" ? (
-          <MarkdownView className="my-6" src={props.content || ""} />
+          <MarkdownView className="my-6" content={props.content || ""} />
         ) : (
           <>
             <textarea

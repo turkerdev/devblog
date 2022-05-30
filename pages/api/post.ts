@@ -50,7 +50,7 @@ const handler: NextApiHandler<
 
     try {
       await res.unstable_revalidate("/");
-      await res.unstable_revalidate(`/${slug}`); // This should return 404 page?
+      await res.unstable_revalidate(`/${slug}`);
       return res.send("OK");
     } catch (err) {
       return res.status(500).send("Internal Server Error");
