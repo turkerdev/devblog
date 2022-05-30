@@ -118,7 +118,7 @@ const Blog: NextPage<Props> = ({ blog }) => {
         <title>{blog.title}</title>
         <meta name="description" content={blog.preview} />
       </Head>
-      <div className="w-[460px] sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
+      <div className="sm:w-[560px] md:w-[620px] lg:w-[700px] xl:w-[860px] 2xl:w-[1080px] mx-auto">
         <div className="my-4 py-4 px-6">
           {adminKey && (
             <div className="border-y border-neutral-600 py-4 px-4 gap-2 flex">
